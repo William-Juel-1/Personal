@@ -85,7 +85,7 @@ h2 {
   font-size: 1.2rem;
   color: var(--accent);
   font-weight: 600;
-  margin: 0 0 1.75rem;
+  margin: 0 0 0.6rem;
 }
 
 h3 {
@@ -97,7 +97,18 @@ h3 {
   color: var(--muted);
   font-family: var(--mono);
   font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+}
+
+.hero-row {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero-text {
+  min-width: 0;
 }
 
 .intro {
@@ -115,20 +126,27 @@ h3 {
 }
 
 .profile-photo {
-  width: 112px;
-  height: 112px;
+  width: 168px;
+  height: 168px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.25rem;
-  border: 3px solid var(--bg-alt);
+  flex-shrink: 0;
+  border: 4px solid var(--bg-alt);
 }
 
 .about-photo {
   width: 100%;
-  max-width: 420px;
+  max-width: 280px;
   border-radius: 10px;
   display: block;
-  margin: 1.5rem 0 0;
+  margin: 1.5rem auto 0;
+}
+
+.photo-caption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.6rem 0 0;
 }
 
 .btn {
@@ -170,84 +188,6 @@ section h4 .num {
   color: var(--accent);
   font-size: 0.85rem;
   letter-spacing: 0;
-}
-
-.skills {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-}
-
-.skills li {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.9rem;
-  font-family: var(--mono);
-}
-
-.job {
-  position: relative;
-  border-left: 2px solid var(--border);
-  padding: 0 0 1.5rem 1.25rem;
-  margin-bottom: 1.5rem;
-  transition: border-color 0.15s ease;
-}
-
-.job:hover {
-  border-left-color: var(--accent);
-}
-
-.job:last-child {
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.job .meta {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  margin-bottom: 0.4rem;
-}
-
-.job p {
-  margin: 0.4rem 0 0;
-}
-
-footer {
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1.5rem 1.25rem 2.5rem;
-}
-
-footer a {
-  color: var(--navy);
-}
-
-@media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-  }
-
-  nav ul {
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  .intro {
-    font-size: 1.05rem;
-  }
 }
 
 .skills-hint {
@@ -305,4 +245,75 @@ footer a {
   padding: 0.8rem 1rem 0.9rem;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.job {
+  position: relative;
+  border-left: 2px solid var(--border);
+  padding: 0 0 1.5rem 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.15s ease;
+}
+
+.job:hover {
+  border-left-color: var(--accent);
+}
+
+.job:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.job .meta {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+.job p {
+  margin: 0.4rem 0 0;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+footer a {
+  color: var(--navy);
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-row {
+    gap: 1.1rem;
+  }
+
+  .profile-photo {
+    width: 96px;
+    height: 96px;
+    border-width: 3px;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+  }
 }
