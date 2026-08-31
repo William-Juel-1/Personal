@@ -200,3 +200,20 @@ footer a {
     font-size: 1.6rem;
   }
 }
+
+.profile-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--bg-alt);
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  display: block;
+  margin: 1.5rem 0 0;
+}
