@@ -249,3 +249,60 @@ footer a {
     font-size: 1.05rem;
   }
 }
+
+.skills-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: -0.6rem 0 1rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skill {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.skill summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill summary::-webkit-details-marker {
+  display: none;
+}
+
+.skill summary::after {
+  content: "+";
+  color: var(--accent);
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 1.1rem;
+  transition: transform 0.15s ease;
+}
+
+.skill[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.skill[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.skill p {
+  margin: 0;
+  padding: 0.8rem 1rem 0.9rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
