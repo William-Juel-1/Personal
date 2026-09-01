@@ -7,7 +7,9 @@
   --bg: #ffffff;
   --bg-alt: #f4f6f8;
   --border: #e2e6ea;
+  --border-strong: #c9d2d9;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --heading-font: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --max-width: 720px;
 }
 
@@ -38,6 +40,7 @@ nav {
 }
 
 nav .brand {
+  font-family: var(--heading-font);
   font-weight: 700;
   font-size: 1.05rem;
   color: #fff;
@@ -76,12 +79,15 @@ main {
 }
 
 h1 {
+  font-family: var(--heading-font);
   font-size: 2.5rem;
+  font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0 0 0.5rem;
 }
 
 h2 {
+  font-family: var(--heading-font);
   font-size: 1.2rem;
   color: var(--accent);
   font-weight: 600;
@@ -89,7 +95,9 @@ h2 {
 }
 
 h3 {
+  font-family: var(--heading-font);
   font-size: 1.05rem;
+  font-weight: 700;
   margin: 0 0 0.2rem;
 }
 
@@ -115,7 +123,7 @@ h3 {
   font-size: 1.15rem;
   line-height: 1.7;
   max-width: 34rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .profile-photo {
@@ -125,6 +133,7 @@ h3 {
   object-fit: cover;
   flex-shrink: 0;
   border: 4px solid var(--bg-alt);
+  box-shadow: 0 14px 30px -14px rgba(36, 51, 63, 0.45);
 }
 
 .page-hero {
@@ -141,6 +150,7 @@ h3 {
   object-fit: cover;
   flex-shrink: 0;
   border: 2px solid var(--bg-alt);
+  box-shadow: 0 8px 18px -10px rgba(36, 51, 63, 0.45);
 }
 
 .page-hero h1 {
@@ -153,6 +163,7 @@ h3 {
   border-radius: 10px;
   display: block;
   margin: 1.5rem auto 0;
+  box-shadow: 0 14px 30px -16px rgba(36, 51, 63, 0.4);
 }
 
 .photo-caption {
@@ -188,6 +199,7 @@ section h4 .num {
   display: flex;
   align-items: baseline;
   gap: 0.6rem;
+  font-family: var(--heading-font);
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--text);
@@ -201,7 +213,6 @@ section h4 .num {
   color: var(--accent);
   font-size: 1rem;
 }
-
 
 .skills-hint {
   color: var(--muted);
@@ -260,15 +271,56 @@ section h4 .num {
   font-size: 0.9rem;
 }
 
+@keyframes skillFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill[open] p {
+  animation: skillFade 0.18s ease;
+}
+
+.lang-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.lang-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.9rem;
+  background: var(--bg);
+}
+
+.lang-item strong {
+  font-weight: 700;
+}
+
+.lang-item span {
+  color: var(--muted);
+}
+
 .job {
   position: relative;
-  border-left: 2px solid var(--border);
+  border-left: 3px solid var(--border-strong);
   padding: 0 0 1.5rem 1.25rem;
   margin-bottom: 1.5rem;
   transition: border-color 0.15s ease;
 }
 
 .job:hover {
+  border-left-color: var(--accent);
+}
+
+.job--current {
   border-left-color: var(--accent);
 }
 
@@ -288,6 +340,21 @@ section h4 .num {
   margin: 0.4rem 0 0;
 }
 
+.current-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: var(--mono);
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -305,10 +372,53 @@ section h4 .num {
   color: var(--muted);
 }
 
-footer {
+.cta-block {
+  margin-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--border);
+}
+
+.cta-block h4 {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.cta-block p {
   color: var(--muted);
-  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+footer {
+  color: var(--muted);
+  font-size: 0.85rem;
   text-align: center;
   padding: 1.5rem 1.25rem 2.5rem;
 }
@@ -318,10 +428,15 @@ footer a {
 }
 
 @media (max-width: 480px) {
+  main {
+    padding-top: 1.75rem;
+  }
+
   nav {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.6rem;
+    padding: 0.85rem 1.25rem;
   }
 
   nav ul {
@@ -359,5 +474,6 @@ footer a {
     --text: #e5e9ec;
     --muted: #93a1ab;
     --border: #2c363d;
+    --border-strong: #384450;
   }
 }
