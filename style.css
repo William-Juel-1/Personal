@@ -202,16 +202,6 @@ section h4 .num {
   font-size: 1rem;
 }
 
-.skill-group-label {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text);
-  margin: 1.4rem 0 0.6rem;
-}
-
-.skill-group-label:first-of-type {
-  margin-top: 0;
-}
 
 .skills-hint {
   color: var(--muted);
