@@ -8,6 +8,7 @@
   --bg-alt: #f4f6f8;
   --border: #e2e6ea;
   --border-strong: #c9d2d9;
+  --accent-tint: rgba(76, 139, 245, 0.12);
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --heading-font: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --max-width: 720px;
@@ -126,12 +127,26 @@ h3 {
   margin-bottom: 1.5rem;
 }
 
+.photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(76, 139, 245, 0.28), transparent 72%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
 .profile-photo {
   width: 168px;
   height: 168px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
+  display: block;
   border: 4px solid var(--bg-alt);
   box-shadow: 0 14px 30px -14px rgba(36, 51, 63, 0.45);
 }
@@ -191,7 +206,10 @@ section h4 {
 section h4 .num {
   font-family: var(--mono);
   color: var(--accent);
-  font-size: 0.85rem;
+  background: var(--accent-tint);
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.78rem;
   letter-spacing: 0;
 }
 
@@ -211,7 +229,10 @@ section h4 .num {
 .group-title .num {
   font-family: var(--mono);
   color: var(--accent);
-  font-size: 1rem;
+  background: var(--accent-tint);
+  border-radius: 6px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.85rem;
 }
 
 .skills-hint {
@@ -230,6 +251,11 @@ section h4 .num {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg);
+  transition: background-color 0.15s ease;
+}
+
+.skill:hover {
+  background: var(--accent-tint);
 }
 
 .skill summary {
@@ -407,8 +433,13 @@ section h4 .num {
 }
 
 .btn-primary {
-  background: var(--navy);
+  background: var(--accent);
   color: #fff;
+  transition: filter 0.15s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.92);
 }
 
 .btn-outline {
@@ -475,5 +506,6 @@ footer a {
     --muted: #93a1ab;
     --border: #2c363d;
     --border-strong: #384450;
+    --accent-tint: rgba(76, 139, 245, 0.2);
   }
 }
